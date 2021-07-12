@@ -1,0 +1,13 @@
+header {
+  border: 1px solid red; 
+  position: absolute;
+  top: 0;
+  z-index: -1;
+
+  height: 400px;
+  width: 100%vw;
+
+  display:flex;
+  
+
+}
