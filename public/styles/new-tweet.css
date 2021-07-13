@@ -2,23 +2,40 @@
   margin: 600px auto 0;
   /* margin: 0 auto; */
   width: 90vw;
-
+  border: 1px solid red;
 
 
 
 }
 
-.tweet-tweet {
+#tweet-text {
+  width: 100%;
+
+  background-color: #f4f1ec;
+  
+  border: none;
   border-bottom: 5px solid;
   border-bottom-color: #545149;
+
 }
 
-tweet-tweet::placeholder {
+/* textarea#tweet-text {
+  border: 1px solid red;
   border-bottom: 5px solid;
   border-bottom-color: #545149;
   font-weight: bold;
-}
 
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+} */
+
+#tweet-text {
+  outline: 0;
+  border-width: 0 0 5px; 
+  border-color: #545149;
+  font-weight: bold;
+}
 
 .counter-tweet-button {
   display:flex;
@@ -34,4 +51,6 @@ tweet-tweet::placeholder {
   font-family: "Bungee";
   background-color: #4056A1;
   color: #FFFF;
+  border-radius: 4px;
+  border: none;
 }
