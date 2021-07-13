@@ -1,6 +1,4 @@
-header {
-  border: 1px solid red; 
-  
+header {  
   position: absolute;
   top: 0;
   z-index: -1;
@@ -21,11 +19,5 @@ header {
 }
 
 h2 {
-  border: 1px solid red;
   margin: 0;
-}
-
-.profileImg {
-  border: 1px solid red;
-
 }
