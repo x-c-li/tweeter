@@ -48,21 +48,19 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p>
-        Insert some tweet stuff<br>
-      </p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets/" method="POST">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div class="counter-tweet-button">
+            <button class="send-tweet">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
     </main>
     
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form action="/tweets/" method="POST">
-        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        <div class="counter-tweet-button">
-          <button class="send-tweet">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
+
   
   </body>
 </html>
