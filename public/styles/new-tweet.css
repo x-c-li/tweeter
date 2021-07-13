@@ -1,6 +1,7 @@
 .new-tweet {
-  margin-top: 600px;
-  position: fixed;
+  margin: 600px auto 0;
+  /* margin: 0 auto; */
+  width: 90vw;
 
 
 
@@ -10,13 +11,23 @@
 .tweet-tweet {
   border-bottom: 5px solid;
   border-bottom-color: #545149;
+}
 
+tweet-tweet::placeholder {
+  border-bottom: 5px solid;
+  border-bottom-color: #545149;
+  font-weight: bold;
+}
+
+
+.counter-tweet-button {
+  display:flex;
+  justify-content: space-between;
 }
 
 .counter {
-  display:flex;
-
-
+  font-family: "Bungee";
+  color: #545149;
 }
 
 .send-tweet{
