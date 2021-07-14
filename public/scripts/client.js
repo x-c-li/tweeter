@@ -5,35 +5,42 @@
 */
 
 //TESTER DATA
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
       "handle": "@SirIsaac"
     },
-  "content": {
+    "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-  "created_at": 1461116232227
-};
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
 
 $(document).ready(function() {
-  
-  const $tweet = createTweetElement(tweetData);
-  // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  // $('#tweets-container').append($tweet); 
-  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  $('#tweet-container').append($tweet);
 
-
+  const rendered = renderTweets(data); //show all tweets from data
+  // console.log(rendered);
 
 });
 
 
 //-------FUNCTIONS------------------------------------------------------------------------------
 
-const createTweetElement = function(tweetObject) {
+const createTweetElement = (tweetObject)=> {
 
   const {name, avatars, handle} = tweetObject.user
   const {text} = tweetObject.content
@@ -68,10 +75,15 @@ const createTweetElement = function(tweetObject) {
   `;
 
   const $tweet = $(htmlMarkup)
-  // document.body.innerHTML = htmlMarkup;
-  // console.log(document.body.innerHTML); //entire page becomes htmlMarkup
 
   return $tweet;
 };
 
-
+const renderTweets = (arrayOfTweets) => {
+  arrayOfTweets.forEach(tweet => {
+    //call for each to create DOM
+    const $tweet = createTweetElement(tweet);
+    // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+    $('#tweet-container').append($tweet);
+  });
+};
