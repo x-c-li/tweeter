@@ -51,6 +51,8 @@ article.tweet {
   margin: 50px 0;
 
   padding: 1em 0.5em;
+  transition-duration: 0.5s;
+
 }
 
 .user-info {
@@ -61,9 +63,8 @@ article.tweet {
 
 }
 
-#tweet-container:hover{
-  transition-duration: 0.5s;
-  box-shadow: 10px 10px #DCD6F7;
+.tweet:hover{
+  box-shadow: 10px 10px #424874;
 }
 
 .tweet-text {
@@ -110,16 +111,16 @@ article.tweet {
 }
 
 .fas.fa-flag:hover {
-  color: darkgoldenrod;
+  color: red;
   transition-duration: 0.5s;
 }
 
 .fas.fa-retweet:hover {
-  color: darkgoldenrod;
+  color: red;
   transition-duration: 0.5s;
 }
 
 .fas.fa-heart:hover {
-  color: darkgoldenrod;
+  color: red;
   transition-duration: 0.5s;
 }
