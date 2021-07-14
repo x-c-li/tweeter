@@ -61,12 +61,10 @@ article.tweet {
 
 }
 
-/* #tweet-container:hover{
+#tweet-container:hover{
   transition-duration: 0.5s;
-  border-bottom: 5px;
-  border-right: 5px;
-  color: #A6B1E1;
-} */
+  box-shadow: 10px 10px #DCD6F7;
+}
 
 .tweet-text {
   font-weight: bold;
