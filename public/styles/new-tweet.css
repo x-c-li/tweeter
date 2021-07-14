@@ -6,6 +6,10 @@ main {
   background-color: #f4f1ec;
 }
 
+.new-tweet {
+  margin-top: 20px;
+}
+
 #tweet-text {
   width: 100%;
 
