@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  console.log("within")
-
 
   $("#tweet-text").on('input', onInput);
 
@@ -17,11 +15,12 @@ const onInput = function() {
   //finds the output tag from within textarea 
   const output = $(this).next().find('output');
   //assigns val to charDiff to keep track of chars
-  $('output').val(charDiff);
+  output.val(charDiff);
 
   if (charDiff < 0) {//changes color if it's negative val
     $("output").css("color", "red");
   } else {
     $("output").css("color", "#545149");
   }
+  
 }
