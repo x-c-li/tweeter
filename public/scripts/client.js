@@ -33,7 +33,21 @@ const data = [
 $(document).ready(function() {
 
   const rendered = renderTweets(data); //show all tweets from data
-  // console.log(rendered);
+
+  $('.tweet-form').submit(function (event) {
+    event.preventDefault();//prevents reloading when not needed
+
+    const formData = $(this).serialize()//serialized the form data
+    console.log("formData", formData)
+    $.ajax({
+      url: '/tweets', //path we're sending data to 
+      type: 'POST', //post request 
+      data: formData //serialized data
+    })
+    // .then
+    
+  });
+
 
 });
 
