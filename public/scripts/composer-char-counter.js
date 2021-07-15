@@ -12,7 +12,7 @@ const onInput = function() {
 
   //finds the difference between allowed chars and tweet length
   let charDiff = 140 - tweet.length;
-  //finds the output tag from within textarea 
+  //finds the output tag from within textarea
   const output = $(this).next().find('output');
   //assigns val to charDiff to keep track of chars
   output.val(charDiff);
@@ -23,4 +23,4 @@ const onInput = function() {
     $("output").css("color", "#545149");
   }
   
-}
+};
