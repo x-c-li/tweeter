@@ -1,10 +1,10 @@
 .profile {  
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   z-index: -1;
 
   height: 400px;
-  width: 100vw;
+  width: 100%;
 
   display:flex;
   justify-content: flex-end;

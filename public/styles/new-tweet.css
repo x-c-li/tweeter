@@ -1,13 +1,21 @@
-main {
-  margin:450px auto 0;
+.container {
 
   width: 90%;
 
   background-color: #F4EEFF;
+  display: flex;
+
+  padding-left: 1em;
+  /* padding-right: 1em; */
+}
+
+#tweet-container {
+  width: 100%;
 }
 
 .new-tweet {
   margin-top: 20px;
+  min-width: 100%; /*scale w container */
 }
 
 #tweet-text {
@@ -107,25 +115,11 @@ article.tweet {
   padding: 0px 10px;
 }
 
-.fas.fa-flag {
+.fas.fa-flag, .fas.fa-retweet {
   padding: 0px 3px;
 }
 
-.fas.fa-retweet {
-  padding: 0px 3px;
-}
-
-.fas.fa-flag:hover {
-  color: red;
-  transition-duration: 0.5s;
-}
-
-.fas.fa-retweet:hover {
-  color: red;
-  transition-duration: 0.5s;
-}
-
-.fas.fa-heart:hover {
+.fas.fa-flag:hover, .fas.fa-retweet:hover, .fas.fa-heart:hover {
   color: red;
   transition-duration: 0.5s;
 }

@@ -19,37 +19,59 @@ body {
   background-color: #F4EEFF;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif; 
-
-  display:flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
 */
 
-/* * {
-  border: 1px solid red;
-} */
+/* tablet */
+@media only screen and (min-width: 768px) {
 
-/* Desktop styles */
-/* Tablet Styles */
-body {
+  .body {
+    width: 768px;
+  }
+
+}
+
+/* desktop */
+@media only screen and (min-width: 1024px) {
+  
+  .profile {
+    width: 25%;
+  }
+
+  .container {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:120px;
+  }
+
+  .c4 {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.c4{
+  width: 100%;
+  display: flex;
+  justify-content: center;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-}
-
-.profile, .new-tweet, .tweet-container {
-  width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
 
 }
 
-@media only screen and (min-width: 1024) {
+.container {
+  flex-direction: column;
+  align-items: center; 
+}
 
+.user-info, .tweet-img-name {
+  display: flex;
+  flex-wrap:wrap;
 }
