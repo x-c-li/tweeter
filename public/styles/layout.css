@@ -59,7 +59,6 @@ body {
   display: flex;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-
 }
 
 .container {
