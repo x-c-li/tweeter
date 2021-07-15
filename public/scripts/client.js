@@ -4,49 +4,36 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-// TESTER DATA
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
-
 $(document).ready(function() {
 
   $('.tweet-form').submit(function (event) {
-    event.preventDefault();//prevents reloading when not needed
+    //prevents reloading  to another page when someone submits a tweet
+    event.preventDefault();
 
-    const formData = $(this).serialize()//serialized the form data
-    // console.log("formData", formData)
+    //serialized the form data
+    const formData = $(this).serialize()
+
+    //takes input value (Tweet) assigns to var after trimming extra spaces
+    const inputText = $('#tweet-text').val().trim();
+
+    if (!inputText) { //if tweet is "" or null
+      return alert("Tweet was empty!")
+    } else if (inputText.length > 140) {
+      return alert("Tweet was over character limit!")
+    }
+
     $.ajax({
       url: '/tweets', //path we're sending data to 
       type: 'POST', //post request 
       data: formData //serialized data
     })
-    //.then
-    
+    .then(()=>{
+      loadTweets();//makes tweets show up on page without refreshing
+    })
+
   });
 
-  loadTweets();
+  loadTweets(); //first time loading the page, shows tweets (per refresh)
 
 });
 
