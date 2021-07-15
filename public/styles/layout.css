@@ -39,6 +39,7 @@ body {
   
   .profile {
     width: 25%;
+    margin-top: 180px;
   }
 
   .container {
@@ -50,9 +51,10 @@ body {
   }
 
   .c4 {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 3.5em;
+    padding-right: 3.5em;
   }
+
 }
 
 .c4{
@@ -73,5 +75,5 @@ body {
 
 .user-info, .tweet-img-name {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
