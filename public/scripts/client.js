@@ -6,31 +6,31 @@
 
 $(document).ready(function() {
 
-  $('.tweet-form').submit(function (event) {
+  $('.tweet-form').submit(function(event) {
     //prevents reloading  to another page when someone submits a tweet
     event.preventDefault();
 
     //serialized the form data
-    const formData = $(this).serialize()
+    const formData = $(this).serialize();
 
     //takes input value (Tweet) assigns to var after trimming extra spaces
     const inputText = escape($('#tweet-text').val().trim());
     
     if (!inputText) { //if tweet is "" or null
-      return alert("Tweet was empty!")
+      return alert("Tweet was empty!");
     } else if (inputText.length > 140) {
-      return alert("Tweet was over character limit!")
+      return alert("Tweet was over character limit!");
     }
 
     $.ajax({
-      url: '/tweets', //path we're sending data to 
-      type: 'POST', //post request 
+      url: '/tweets', //path we're sending data to
+      type: 'POST', //post request
       data: formData //serialized data
     })
-    .then(()=>{
-      $('#tweet-container').html(""); //HACK: clears whole screen and then load it
-      loadTweets();//makes tweets show up on page without refreshing
-    })
+      .then(()=>{
+        $('#tweet-container').html(""); //HACK: clears whole screen and then load it
+        loadTweets();//makes tweets show up on page without refreshing
+      });
 
   });
 
@@ -43,8 +43,8 @@ $(document).ready(function() {
 
 const createTweetElement = (tweetObject)=> {
 
-  const {name, avatars, handle} = tweetObject.user
-  const text = escape(tweetObject.content.text)//prevents users from hijacking site
+  const {name, avatars, handle} = tweetObject.user;
+  const text = escape(tweetObject.content.text);//prevents users from hijacking site
   const timeSinceCreation = timeago.format(tweetObject.created_at);
   
   const htmlMarkup = `
@@ -74,13 +74,13 @@ const createTweetElement = (tweetObject)=> {
     </article>
   `;
 
-  const $tweet = $(htmlMarkup)
+  const $tweet = $(htmlMarkup);
 
   return $tweet;
 };
 
 const renderTweets = (arrayOfTweets) => {
-  console.log("arrayOfTweets", arrayOfTweets)
+  console.log("arrayOfTweets", arrayOfTweets);
   arrayOfTweets.forEach(tweet => {
     //call for each to create DOM
     const $tweet = createTweetElement(tweet);
@@ -94,14 +94,14 @@ const loadTweets = function() {
     method: "GET",
     url: '/tweets',
   })
-  .then(function (moreTweets) {
+    .then(function(moreTweets) {
     // console.log('Success: ', moreTweets);
-    renderTweets(moreTweets); //show all tweets from data
-  })
-}
+      renderTweets(moreTweets); //show all tweets from data
+    });
+};
 
-const escape = function (str) {
-  let div = document.createElement("div");//creates temp div 
+const escape = function(str) {
+  let div = document.createElement("div");//creates temp div
   div.appendChild(document.createTextNode(str));//creating text for the string and appends to the div
   return div.innerHTML;//returns it
 };
