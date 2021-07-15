@@ -98,7 +98,6 @@ $(document).ready(function() {
       return errorMessage.slideUp(2500);
     }
 
-
     $.ajax({
       url: '/tweets', //path we're sending data to
       method: 'POST', //post request
