@@ -32,3 +32,24 @@ body {
 /* * {
   border: 1px solid red;
 } */
+
+/* Desktop styles */
+/* Tablet Styles */
+body {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.profile, .new-tweet, .tweet-container {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024) {
+
+}
