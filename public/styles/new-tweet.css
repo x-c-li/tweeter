@@ -5,8 +5,7 @@
   background-color: #F4EEFF;
   display: flex;
 
-  padding-left: 1em;
-  /* padding-right: 1em; */
+  padding-left: 2em;
 }
 
 #tweet-container {
