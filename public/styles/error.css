@@ -1,4 +1,8 @@
 .isa_error {
   color: #D8000C;
   background-color: #FFD2D2;
+  font-weight: bold;
+  display: none;
+  padding: 0.5em 0.5em;
+  margin-bottom: 20px;
 }
