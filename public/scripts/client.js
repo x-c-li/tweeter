@@ -14,8 +14,8 @@ $(document).ready(function() {
     const formData = $(this).serialize()
 
     //takes input value (Tweet) assigns to var after trimming extra spaces
-    const inputText = $('#tweet-text').val().trim();
-
+    const inputText = escape($('#tweet-text').val().trim());
+    
     if (!inputText) { //if tweet is "" or null
       return alert("Tweet was empty!")
     } else if (inputText.length > 140) {
@@ -28,6 +28,7 @@ $(document).ready(function() {
       data: formData //serialized data
     })
     .then(()=>{
+      $('#tweet-container').html(""); //HACK: clears whole screen and then load it
       loadTweets();//makes tweets show up on page without refreshing
     })
 
@@ -43,8 +44,7 @@ $(document).ready(function() {
 const createTweetElement = (tweetObject)=> {
 
   const {name, avatars, handle} = tweetObject.user
-  const {text} = tweetObject.content
-  
+  const text = escape(tweetObject.content.text)//prevents users from hijacking site
   const timeSinceCreation = timeago.format(tweetObject.created_at);
   
   const htmlMarkup = `
@@ -80,6 +80,7 @@ const createTweetElement = (tweetObject)=> {
 };
 
 const renderTweets = (arrayOfTweets) => {
+  console.log("arrayOfTweets", arrayOfTweets)
   arrayOfTweets.forEach(tweet => {
     //call for each to create DOM
     const $tweet = createTweetElement(tweet);
@@ -98,3 +99,9 @@ const loadTweets = function() {
     renderTweets(moreTweets); //show all tweets from data
   })
 }
+
+const escape = function (str) {
+  let div = document.createElement("div");//creates temp div 
+  div.appendChild(document.createTextNode(str));//creating text for the string and appends to the div
+  return div.innerHTML;//returns it
+};
