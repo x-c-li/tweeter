@@ -1,9 +1,9 @@
 .profile {  
-  /* position: absolute; */
   top: 0;
   z-index: -1;
 
   height: 400px;
+  margin-top: 120px; /*because height is fixed*/
   width: 100%;
 
   display:flex;
@@ -14,10 +14,4 @@
   background-color: #DCD6F7;
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  
-  margin-top: 120px; /*because height is fixed*/
 }
-
-/* h2 {
-  margin: 0;
-} */

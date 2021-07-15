@@ -89,12 +89,12 @@ $(document).ready(function() {
     
     if (!inputText) { //if tweet is "" or null
       errorMessage.text(" ⛔ Error! Tweet is empty! ⛔");
-      errorMessage.slideDown("slow")
+      errorMessage.slideDown("slow");
       return errorMessage.slideUp(2500);
 
     } else if (inputText.length > 140) {
       errorMessage.text(" ⛔ Error! Tweet is over character limit! ⛔");
-      errorMessage.slideDown("slow")
+      errorMessage.slideDown("slow");
       return errorMessage.slideUp(2500);
     }
 
@@ -104,9 +104,7 @@ $(document).ready(function() {
       data: formData //serialized data
     })
     .then(()=>{
-      // $('#tweet-container').empty(); //clears and then load it
-      // loadTweets();//makes tweets show up on page without refreshing
-      location.reload(true)
+      location.reload(true);
     });
 
   });
