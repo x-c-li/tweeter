@@ -4,41 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-$(document).ready(function() {
-
-  $('.tweet-form').submit(function(event) {
-    //prevents reloading  to another page when someone submits a tweet
-    event.preventDefault();
-
-    //serialized the form data
-    const formData = $(this).serialize();
-
-    //takes input value (Tweet) assigns to var after trimming extra spaces
-    const inputText = escape($('#tweet-text').val().trim());
-    
-    if (!inputText) { //if tweet is "" or null
-      return alert("Tweet was empty!");
-    } else if (inputText.length > 140) {
-      return alert("Tweet was over character limit!");
-    }
-
-    $.ajax({
-      url: '/tweets', //path we're sending data to
-      type: 'POST', //post request
-      data: formData //serialized data
-    })
-      .then(()=>{
-        $('#tweet-container').html(""); //HACK: clears whole screen and then load it
-        loadTweets();//makes tweets show up on page without refreshing
-      });
-
-  });
-
-  loadTweets(); //first time loading the page, shows tweets (per refresh)
-
-});
-
-
 //-------FUNCTIONS------------------------------------------------------------------------------
 
 const createTweetElement = (tweetObject)=> {
@@ -94,10 +59,9 @@ const loadTweets = function() {
     method: "GET",
     url: '/tweets',
   })
-    .then(function(moreTweets) {
-    // console.log('Success: ', moreTweets);
-      renderTweets(moreTweets); //show all tweets from data
-    });
+  .then(function(moreTweets) {
+    renderTweets(moreTweets); //show all tweets from data
+  });
 };
 
 const escape = function(str) {
@@ -105,3 +69,49 @@ const escape = function(str) {
   div.appendChild(document.createTextNode(str));//creating text for the string and appends to the div
   return div.innerHTML;//returns it
 };
+
+//----------------------------DOC READY----------------------------------------------------------------
+
+$(document).ready(function() {
+
+  $('.tweet-form').submit(function(event) {
+    
+    const errorMessage = $('.new-tweet').find('.isa_error');
+    
+    //prevents reloading  to another page when someone submits a tweet
+    event.preventDefault();
+
+    //serialized the form data
+    const formData = $(this).serialize();
+
+    //takes input value (Tweet) assigns to var after trimming extra spaces
+    const inputText = escape($('#tweet-text').val().trim());
+    
+    if (!inputText) { //if tweet is "" or null
+      errorMessage.text(" ⛔ Error! Tweet is empty! ⛔");
+      errorMessage.slideDown("slow")
+      return errorMessage.slideUp(2500);
+
+    } else if (inputText.length > 140) {
+      errorMessage.text(" ⛔ Error! Tweet is over character limit! ⛔");
+      errorMessage.slideDown("slow")
+      return errorMessage.slideUp(2500);
+    }
+
+
+    $.ajax({
+      url: '/tweets', //path we're sending data to
+      method: 'POST', //post request
+      data: formData //serialized data
+    })
+    .then(()=>{
+      // $('#tweet-container').empty(); //clears and then load it
+      // loadTweets();//makes tweets show up on page without refreshing
+      location.reload(true)
+    });
+
+  });
+  
+  loadTweets(); //first time loading the page, shows tweets (per refresh)
+
+});
