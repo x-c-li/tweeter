@@ -44,6 +44,11 @@ main {
   border: none;
 }
 
+.send-tweet:hover {
+  background-color: red;
+  transition-duration: 0.5s;
+}
+
 article.tweet {
   border: 5px solid;
   border-color: #545149;
