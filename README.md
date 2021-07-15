@@ -15,3 +15,14 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Final Product
+
+##### Desktop View
+![](https://github.com/x-c-li/tweeter/blob/master/pics/desktop-view.png)
+
+##### Desktop Tweet
+![](https://github.com/x-c-li/tweeter/blob/master/pics/tweet-posted.png)
+
+##### Tablet View
+![](https://github.com/x-c-li/tweeter/blob/master/pics/tablet-view.png)
