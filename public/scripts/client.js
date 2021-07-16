@@ -45,7 +45,6 @@ const createTweetElement = (tweetObject)=> {
 };
 
 const renderTweets = (arrayOfTweets) => {
-  console.log("arrayOfTweets", arrayOfTweets);
   arrayOfTweets.forEach(tweet => {
     //call for each to create DOM
     const $tweet = createTweetElement(tweet);
@@ -90,13 +89,14 @@ $(document).ready(function() {
     if (!inputText) { //if tweet is "" or null
       errorMessage.text(" ⛔ Error! Tweet is empty! ⛔");
       errorMessage.slideDown("slow");
-      return errorMessage.slideUp(2500);
-
     } else if (inputText.length > 140) {
       errorMessage.text(" ⛔ Error! Tweet is over character limit! ⛔");
       errorMessage.slideDown("slow");
-      return errorMessage.slideUp(2500);
     }
+    
+    $('body').click(function() {
+      errorMessage.slideUp(1000) //looks for click events in body, then makes error msg slide up
+    });
 
     $.ajax({
       url: '/tweets', //path we're sending data to

@@ -25,11 +25,8 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
 */
 
-/* tablet */
-@media only screen and (min-width: 768px) {}
-
 /* desktop */
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   
   .profile {
     width: 25%;
@@ -49,7 +46,12 @@ body {
     padding-right: 3.5em;
   }
 
+  nav {
+    background-color: #424874;
+    background-image: none;
+  }
 }
+
 
 .c4{
   width: 100%;
